@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.account.mapper.StaticsMapper">
+
+  <select id="selectCurentMonthSpandingRate" resultType="com.account.domain.Account">
+
+    select input_date, sum(money)  as money, category, inout_type 
+	from tb_account 
+	where year(input_date)=year(#{input_date}) and month(input_date)=month(#{input_date})
+	group by year(input_date), month(input_date), category
+	having inout_type=1;
+  </select>
+ 
+    
+ 
+</mapper>
+
+

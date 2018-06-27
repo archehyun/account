@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.account.mapper.AccountMapper">
+
+  <select id="selectAccount" resultType="com.account.domain.IncomeAccount">
+    select * from tb_account where inout_type=#{inout_type}
+  </select>    
+ 
+    <insert id="insertAccount" parameterType="com.account.domain.Account">
+	        insert into tb_account( input_date, money, contents, inout_type, category)
+	            values
+        (#{input_date}, #{money}, #{contents}, #{inout_type}, #{category})
+    </insert>
+    
+    <delete id="deleteAccount" parameterType="com.account.domain.Account">
+    delete from tb_account where input_nn = #{input_nn}
+    </delete>
+	<update id="updateAccount">
+	  update tb_account
+	    <set>
+	      <if test="user_name != null">user_name=#{user_name}</if>
+	    </set>
+	  where user_id = #{user_id}
+	</update>    
+ 
+</mapper>
+
+
