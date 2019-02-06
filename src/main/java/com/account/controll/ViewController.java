@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-import org.omg.PortableInterceptor.ACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -102,7 +101,6 @@ public class ViewController {
 
 	@FXML
 	private RadioButton rbtOutcome;
-
 
 	@FXML
 	private TextField txfContent;

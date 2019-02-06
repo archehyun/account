@@ -13,7 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	group by year(input_date), month(input_date), category
 	having inout_type=1;
   </select>
- 
+ <select id="selectMonthlySpanding" resultType="com.account.domain.Account">
+ 	select month(input_date) as input_month, sum(money) from tb_account 
+	where year(input_date)=2018
+	group by input_month
+ </select>
     
  
 </mapper>
